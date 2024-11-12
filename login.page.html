@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Login Page</title>
+    <style>
+        /* Vintage styling for body */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url(water1.jpg);
+            background-size: 200% 200%;
+            animation: gradientAnimation 8s ease infinite;
+        }
+
+        /* Animation for gradient background */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container styling */
+        .login-container {
+            width: 320px;
+            padding: 25px;
+            border-radius: 8px;
+            background-color: #fdf3e3;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid #d4a373;
+
+        }
+
+        .login-container h2 {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            color: #a24d34;
+            margin-bottom: 20px;
+        }
+
+        /* Styling input groups */
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-family: 'Georgia', serif;
+            font-size: 16px;
+            color: #6a4f4b;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d4a373;
+            border-radius: 5px;
+            background-color: #fbf1e7;
+            color: #5a504e;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: #a24d34;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            display: none;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Button styling */
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #d4a373;
+            color: #fdf3e3;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            transition: background-color 0.3s ease;
+        }
+        .login-btn:hover {
+            background-color: #c28d5b;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="error-message" id="error-message">Password must be at least 8 characters long.</div>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter Username">
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Password">
+        </div>
+        <button class="login-btn" onclick="validateLogin()">Login</button>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (password.length < 8) {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+                window.location.href = "http://127.0.0.1:5500/website/HOME.HTML";
+            }
+        }
+    </script>
+</body>
+</html>
